@@ -5,7 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  exec("../../vercel-build.sh", (error, stdout, stderr) => {
+  exec("./vercel-build.sh", (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       res.status(500).send("Error triggering build");
