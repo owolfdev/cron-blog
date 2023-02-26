@@ -22,10 +22,11 @@ async function insertPost(post) {
 
 // Example usage: insert a new post into the database
 const post = {
-  title: "My second blog post",
+  title: "This blog post should publish at 7:50am",
   content: "Lorem ipsum dolor sit amet...",
   author: "John Doe",
-  date: new Date("2023-02-27T02:20:00.000Z"),
+  date: new Date("2023-02-26T00:50:00.000Z"),
   tags: ["blogging", "mongodb", "node.js"],
 };
+
 insertPost(post);
