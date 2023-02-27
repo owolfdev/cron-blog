@@ -14,6 +14,8 @@ async function findPosts() {
     const database = client.db("blog_test");
     const collection = database.collection("posts");
     const now = new Date();
+    console.log("now.toISOString:", now.toISOString());
+    console.log("now:", now);
     const result = await collection.find({ date: { $lte: now } }).toArray();
     const posts = result.map((post) => {
       return {
@@ -22,10 +24,14 @@ async function findPosts() {
         date: post.date.toISOString(),
       };
     });
+    console.log(`Found ${posts.length} posts.`);
+    console.log("posts:", posts);
     return posts;
   } finally {
     await client.close();
   }
 }
+
+findPosts();
 
 module.exports = findPosts;

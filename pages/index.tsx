@@ -12,7 +12,7 @@ export default function Home({ posts }: any) {
 export async function getStaticProps() {
   const posts = await findPosts();
   // Props returned will be passed to the page component
-  console.log("posts", posts);
+  //console.log("posts", posts);
 
   return { props: { posts } };
 }
