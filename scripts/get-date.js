@@ -5,5 +5,5 @@
 
 const currentDate = new Date();
 console.log(currentDate.toISOString());
-const publicationDate = new Date(2023, 1, 28, 11, 0, 0);
+const publicationDate = new Date(2023, 2, 3, 3, 30, 0);
 console.log(publicationDate.toISOString());
