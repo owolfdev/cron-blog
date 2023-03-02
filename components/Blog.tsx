@@ -6,7 +6,12 @@ function Blog({ posts }: any) {
     const year = dateObj.getUTCFullYear();
     const month = String(dateObj.getUTCMonth() + 1).padStart(2, "0");
     const day = String(dateObj.getUTCDate()).padStart(2, "0");
-    const formattedDate = `${year}-${month}-${day}`;
+    const hours = dateObj.getUTCHours();
+    const minutes = String(dateObj.getUTCMinutes()).padStart(2, "0");
+    const amPm = hours >= 12 ? "pm" : "am";
+    const formattedHours = hours % 12 || 12;
+    const formattedTime = `${formattedHours}:${minutes} ${amPm}`;
+    const formattedDate = `${year}-${month}-${day} ${formattedTime}`;
     return formattedDate;
   };
 
