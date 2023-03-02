@@ -3,16 +3,11 @@ import React from "react";
 function Blog({ posts }: any) {
   const formatDate = (date: any) => {
     const dateObj = new Date(date);
-    const year = dateObj.getUTCFullYear();
-    const month = String(dateObj.getUTCMonth() + 1).padStart(2, "0");
-    const day = String(dateObj.getUTCDate()).padStart(2, "0");
-    const hours = dateObj.getUTCHours();
-    const minutes = String(dateObj.getUTCMinutes()).padStart(2, "0");
-    const amPm = hours >= 12 ? "pm" : "am";
-    const formattedHours = hours % 12 || 12;
-    const formattedTime = `${formattedHours}:${minutes} ${amPm}`;
-    const formattedDate = `${year}-${month}-${day} ${formattedTime}`;
-    return formattedDate;
+    const options = { timeZone: "Asia/Bangkok" };
+    const formattedDate = dateObj.toLocaleDateString("en-US", options);
+    const formattedTime = dateObj.toLocaleTimeString("en-US", options);
+    const formattedDateTime = `${formattedDate} ${formattedTime}`;
+    return formattedDateTime;
   };
 
   return (
